@@ -2,6 +2,10 @@
 
 
 
+![flowchart](https://github.com/skyocean-kanhai/KanHai/blob/main/figs/flowchart.pdf)
+
+![arch](https://github.com/skyocean-kanhai/KanHai/blob/main/figs/model_arch.pdf)
+
 KanHai is a novel deep learning framework for real-time, satellite-driven ocean state forecasting in the Northwestern Pacific at 1/8° resolution, covering depths from 0 to 650 m. It employs a two-stage reconstruction-prediction approach to predict SLA, temperature, salinity, and velocity components.
 
 ## Installation
