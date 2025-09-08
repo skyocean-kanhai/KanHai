@@ -100,25 +100,13 @@ kanhai_release/
 #### Reconstruction
 
 ```bash
-python inference_recon.py \
-    --date 20250701 \
-    --save_dir ./output_data/recon \
-    --surface_file_dir ./input_data/SLA \
-    --sst_file_dir ./input_data/SST \
-    --sss_file_dir ./input_data/SSS \
-    --deep_file_dir ./input_data/DEEP_LAYER_BACKGROUND
+python inference_recon.py --date 20250701 --save_dir ./output_data/recon --surface_file_dir ./input_data/SLA --sst_file_dir ./input_data/SST --sss_file_dir ./input_data/SSS --deep_file_dir ./input_data/DEEP_LAYER_BACKGROUND
 ```
 
 #### Forecasting
 
 ```bash
-python inference_forecast.py \
-    --date 20250701 \
-    --save_dir ./output_data/forecast \
-    --surface_file_dir ./input_data/SLA \
-    --sst_file_dir ./input_data/SST \
-    --sss_file_dir ./input_data/SSS \
-    --deep_file_dir ./output_data/recon
+python inference_forecast.py --date 20250701 --save_dir ./output_data/forecast --surface_file_dir ./input_data/SLA --sst_file_dir ./input_data/SST --sss_file_dir ./input_data/SSS --deep_file_dir ./output_data/recon
 ```
 
 ## Output Format
