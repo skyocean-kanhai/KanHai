@@ -1,7 +1,5 @@
 # KanHai (SkyOcean)
 
-
-
 ![flowchart](https://github.com/skyocean-kanhai/KanHai/blob/main/figs/flowchart.jpg)
 
 ![arch](https://github.com/skyocean-kanhai/KanHai/blob/main/figs/model_arch.png)
@@ -36,10 +34,9 @@ pip install onnxruntime-gpu
 conda install xarray dask netCDF4 bottleneck
 ```
 
-Clone the repository:
+Please download the complete project files from the cloud drive, including input examples and model weights.
 
 ```bash
-git clone https://github.com/skyocean-kanhai/KanHai.git
 cd kanhai
 ```
 
@@ -154,12 +151,22 @@ The KanHai models output NetCDF files with the following structure:
 
 ## Data Sources
 
-The KanHai models are trained on high-quality oceanographic data:
+This section describes the preparation of input data for the model. The area must include:
 
-- **Surface Data**: CMEMS satellite products (SLA, SST, SSS)
-- **Subsurface Data**: GLORYS ocean reanalysis
-- **Validation**: Independent ocean observations and reanalysis products
-- **Coverage**: Global ocean with focus on regional accuracy
+- Longitude: 100°E to 159.875°E (0.125° resolution, 480 grid points)
+
+- Latitude: 0°N to 49.875°N (0.125° resolution, 400 grid points)
+
+The resolution of all data must be interpolated to 1/8°.The Kanhai model is driven by the following data:
+
+- **L4 Sea Level Anomaly (SLA) and Geostrophic Currents (u, v)**: From [Copernicus Marine Service product SEALEVEL_GLO_PHY_L4_NRT_008_046](https://data.marine.copernicus.eu/product/SEALEVEL_GLO_PHY_L4_NRT_008_046/description) (0.125° resolution, daily).
+- **L4 Sea Surface Temperature (SST)**: [NOAA OISST v2.1 AVHRR dataset](https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/) (0.25° resolution, daily). Requires resampling to 0.125°.
+- **Sea Surface Salinity (SSS)**: For real-time inference, we integrate data from two L3 products, [SMOS SSS](https://data.marine.copernicus.eu/product/MULTIOBS_GLO_PHY_SSS_L3_MYNRT_015_014/description) and [SMAP SSS](https://podaac.jpl.nasa.gov/dataset/SMAP_JPL_L2B_SSS_CAP_V5#), to enhance accuracy and timeliness. Alternatively, users can opt for direct inference using the [Copernicus L4 product MULTIOBS_GLO_PHY_S_SURFACE_MYNRT_015_013](https://data.marine.copernicus.eu/product/MULTIOBS_GLO_PHY_S_SURFACE_MYNRT_015_013/description) (0.125° resolution, daily), which ensures greater consistency.
+- **Background Fields**: From [Copernicus GLOBAL_ANALYSISFORECAST_PHY_001_024](https://data.marine.copernicus.eu/product/GLOBAL_ANALYSISFORECAST_PHY_001_024/description) (0.083° resolution, daily). Includes:
+  - Currents (daily): cmems_mod_glo_phy-cur_anfc_0.083deg_P1D-m (eastward/northward sea water velocity).
+  - Salinity (daily): cmems_mod_glo_phy-so_anfc_0.083deg_P1D-m (sea water salinity).
+  - Temperature (daily): cmems_mod_glo_phy-thetao_anfc_0.083deg_P1D-m (sea water potential temperature).
+    Requires resampling to 0.125°.
 
 ## Model Files
 
@@ -199,6 +206,8 @@ For questions and support regarding KanHai (SkyOcean), please open an issue on G
 - GLORYS team for ocean reanalysis products
 - ONNX Runtime team for efficient model inference
 - The oceanographic community for data validation and feedback
+- **[ConvIR](https://github.com/c-yn/ConvIR)**: An innovative convolutional network for image restoration, providing open-source code and pre-trained models for tasks like dehazing, desnowing, deraining, and deblurring.
+- **[ChaosBench](https://github.com/leap-stc/ChaosBench)**: A multi-channel, physics-based benchmark for subseasonal-to-seasonal climate prediction, offering ERA5/LRA5/ORAS5 data, baselines, and differentiable physics metrics.
 
 ---
 
