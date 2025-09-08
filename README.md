@@ -202,10 +202,14 @@ For questions and support regarding KanHai (SkyOcean), please open an issue on G
 
 ## Acknowledgments
 
-- CMEMS for providing satellite ocean data
-- GLORYS team for ocean reanalysis products
-- ONNX Runtime team for efficient model inference
-- The oceanographic community for data validation and feedback
+We gratefully acknowledge the following institutions for providing essential datasets:
+
+- [Copernicus Marine Service](https://data.marine.copernicus.eu/) for the L4 Sea Level Anomaly (SLA), Geostrophic Currents (u, v), Sea Surface Salinity (SSS) L4, and Background Fields.
+- [NOAA](https://www.ncei.noaa.gov/) for the L4 Sea Surface Temperature (SST) OISST v2.1 AVHRR dataset.
+- [ESA](https://smos-diss.eo.esa.int/) and [NASA](https://podaac.jpl.nasa.gov/) for the SMOS and SMAP SSS L3 products, respectively.CMEMS for providing satellite ocean data
+
+We would like to thank the following GitHub repositories:
+
 - **[ConvIR](https://github.com/c-yn/ConvIR)**: An innovative convolutional network for image restoration, providing open-source code and pre-trained models for tasks like dehazing, desnowing, deraining, and deblurring.
 - **[ChaosBench](https://github.com/leap-stc/ChaosBench)**: A multi-channel, physics-based benchmark for subseasonal-to-seasonal climate prediction, offering ERA5/LRA5/ORAS5 data, baselines, and differentiable physics metrics.
 
