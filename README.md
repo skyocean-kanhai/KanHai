@@ -34,10 +34,10 @@ pip install onnxruntime-gpu
 conda install xarray dask netCDF4 bottleneck
 ```
 
-Please download the complete project files from the cloud drive, including input examples and model weights.
+Please download the complete project files from the cloud drive [BaiduNetdisk](https://pan.baidu.com/s/1UHxwp4NXocdC9Sqky3ltnA?pwd=3gws), including input examples and model weights.
 
 ```bash
-cd SkyOcean
+cd kanhai
 ```
 
 ## Quick Start
