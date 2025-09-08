@@ -163,19 +163,6 @@ The SkyOcean system includes the following trained models:
 - `recon_model.onnx`: Ocean reconstruction model (85 → 80 channels)
 - `lead1_model.onnx` to `lead10_model.onnx`: Forecast models for 1-10 day lead times (85 → 81 channels)
 
-## Citation
-
-If you use SkyOcean (瞰海) in your research, please cite:
-
-```bibtex
-@software{kanhai_skyocean,
-  title={KanHai (SkyOcean): Deep Learning for Ocean Reconstruction and Forecasting},
-  author={Your Name},
-  year={2025},
-  url={https://github.com/yourusername/kanhai-skyocean}
-}
-```
-
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
