@@ -1,10 +1,10 @@
-# KanHai (SkyOcean)
+# SkyOcean(瞰海)
 
 ![flowchart](https://github.com/skyocean-kanhai/KanHai/blob/main/figs/flowchart.jpg)
 
 ![arch](https://github.com/skyocean-kanhai/KanHai/blob/main/figs/model_arch.png)
 
-KanHai is a novel deep learning framework for real-time, satellite-driven ocean state forecasting in the Northwestern Pacific at 1/8° resolution, covering depths from 0 to 650 m. It employs a two-stage reconstruction-prediction approach to predict SLA, temperature, salinity, and velocity components.
+SkyOcean is a novel deep learning framework for real-time, satellite-driven ocean state forecasting in the Northwestern Pacific at 1/8° resolution, covering depths from 0 to 650 m. It employs a two-stage reconstruction-prediction approach to predict SLA, temperature, salinity, and velocity components.
 
 ## Installation
 
@@ -17,11 +17,11 @@ KanHai is a novel deep learning framework for real-time, satellite-driven ocean 
 create conda environment
 
 ```bash
-conda create --name kanhai python=3.11 
+conda create --name SkyOcean python=3.11 
 ```
 
 ```bash
-conda activate kanhai
+conda activate SkyOcean
 ```
 
 Install dependencies:
@@ -37,7 +37,7 @@ conda install xarray dask netCDF4 bottleneck
 Please download the complete project files from the cloud drive, including input examples and model weights.
 
 ```bash
-cd kanhai
+cd SkyOcean
 ```
 
 ## Quick Start
@@ -60,10 +60,10 @@ python inference_forecast.py --date 20250701
 
 ## Project Structure
 
-The KanHai project follows a clean, organized structure:
+The SkyOcean project follows a clean, organized structure:
 
 ```
-kanhai_release/
+SkyOcean_release/
 ├── input_data/                          # Input data directory
 │   ├── SLA/                            # Sea Level Anomaly data
 │   │   └── 2025/                       # Year-based organization
@@ -76,7 +76,7 @@ kanhai_release/
 │   └── forecast/                       # Forecast results
 │       └── 2025/                       # Year-based organization
 ├── src/                                # Source code and models
-│   ├── model_onnx/                     # KanHai ONNX models
+│   ├── model_onnx/                     # SkyOcean ONNX models
 │   │   ├── recon_model.onnx           # Reconstruction model
 │   │   ├── lead1_model.onnx           # 1-day forecast model
 │   │   ├── lead2_model.onnx           # 2-day forecast model
@@ -113,7 +113,7 @@ python inference_forecast.py --date 20250701 --save_dir ./output_data/forecast -
 
 ### NetCDF Files
 
-The KanHai models output NetCDF files with the following structure:
+The SkyOcean models output NetCDF files with the following structure:
 
 **Reconstruction Output** (`output_data/recon/YYYY/recon_YYYYMMDD.nc`):
 
@@ -145,7 +145,7 @@ This section describes the preparation of input data for the model. The area mus
 
 - Latitude: 0°N to 49.875°N (0.125° resolution, 400 grid points)
 
-The resolution of all data must be interpolated to 1/8°.The Kanhai model is driven by the following data:
+The resolution of all data must be interpolated to 1/8°.The SkyOcean model is driven by the following data:
 
 - **L4 Sea Level Anomaly (SLA) and Geostrophic Currents (u, v)**: From [Copernicus Marine Service product SEALEVEL_GLO_PHY_L4_NRT_008_046](https://data.marine.copernicus.eu/product/SEALEVEL_GLO_PHY_L4_NRT_008_046/description) (0.125° resolution, daily).
 - **L4 Sea Surface Temperature (SST)**: [NOAA OISST v2.1 AVHRR dataset](https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/) (0.25° resolution, daily). Requires resampling to 0.125°.
@@ -158,14 +158,14 @@ The resolution of all data must be interpolated to 1/8°.The Kanhai model is dri
 
 ## Model Files
 
-The KanHai system includes the following trained models:
+The SkyOcean system includes the following trained models:
 
 - `recon_model.onnx`: Ocean reconstruction model (85 → 80 channels)
 - `lead1_model.onnx` to `lead10_model.onnx`: Forecast models for 1-10 day lead times (85 → 81 channels)
 
 ## Citation
 
-If you use KanHai (SkyOcean) in your research, please cite:
+If you use SkyOcean (瞰海) in your research, please cite:
 
 ```bibtex
 @software{kanhai_skyocean,
@@ -182,11 +182,11 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contributing
 
-Contributions to KanHai (SkyOcean) are welcome! Please feel free to submit a Pull Request.
+Contributions to SkyOcean(瞰海) are welcome! Please feel free to submit a Pull Request.
 
 ## Support
 
-For questions and support regarding KanHai (SkyOcean), please open an issue on GitHub.
+For questions and support regarding SkyOcean(瞰海), please open an issue on GitHub.
 
 ## Acknowledgments
 
@@ -203,4 +203,4 @@ We would like to thank the following GitHub repositories:
 
 ---
 
-**KanHai (SkyOcean)** - Bridging the gap between satellite observations and deep ocean understanding through advanced AI.
+**SkyOcean(瞰海)** - Bridging the gap between satellite observations and deep ocean understanding through advanced AI.
